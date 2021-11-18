@@ -1,0 +1,128 @@
+canvas {
+    background-color: black;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mjaC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas-placement {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(img/background/bg3.jpg);
+    background-position: 30% 70%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.game-description {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    width: 450px;
+    height: 600px;
+    text-align: center;
+}
+
+.game-description p {
+    color: white;
+    word-wrap: break-word;
+    font-size: 54px;
+    animation: playerdescritiontextcomming 2s ease-in;
+    transform: translateX(0);
+}
+
+@keyframes playerdescritiontextcomming {
+    from {
+        transform: translateX(500px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.playerdescritiontextgoing {
+    transform: translateX(0);
+    animation: playerdescritiontextgoing 2s ease-in forwards;
+}
+
+@keyframes playerdescritiontextgoing {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(500px);
+    }
+}
+
+.canvas-placement h1 {
+    color: white;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+}
+
+.d-none {
+    display: none;
+}
+
+.explainkeys-boxes {
+    width: 240px;
+    height: 100px;
+    border: 5px solid white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard-use-description {
+    position: absolute;
+    bottom: 40px;
+    /* background-color: black; */
+    height: 15vh;
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(0);
+    animation: descritionboxcomming 2s ease-in forwards;
+}
+
+@keyframes descritionboxcomming {
+    from {
+        transform: translateX(-2000px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.keyboarddescritionboxesgoing {
+    transform: translateX(0);
+    animation: descritionboxgoing 2s ease-in forwards;
+}
+
+@keyframes descritionboxgoing {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(2000px);
+    }
+}
+
+
+
