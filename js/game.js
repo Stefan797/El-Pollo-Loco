@@ -1,22 +1,17 @@
-let canvas; // exist global 
+let canvas;
 let world;
 let keyboard = new Keyboard();
 let screenWidth;
 
 /**
- * This function is loaded with onload at index.html 
- * line 12 assigns the variable the id from canvas element from html 
- * the v world is a Object with variables
- * @param {string} - global existens v that all js can use the canvas from html
+ * Is loaded with onload via the Index.html file.
+ * Binds the canvas to a variable in order to be able to work with it.
+ * binds the world to one object.
+ * Start a timer for two functions.
  */
-
 function init() {
-    canvas = document.getElementById('canvas'); // the V canvas is the canvas from our html
+    canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
-
-    if (window.innerWidth < 800) {
-        canvas.width = window.innerWidth;
-    }
 
     setTimeout(() => {
         hideText();
@@ -25,18 +20,26 @@ function init() {
     setTimeout(() => {
         hidedescriptionboxes();
     }, 10000);
-
-    // console.log('My Character is', world.character); // Give the Paht How as a Json 
 }
 
+/**
+ * This function adds a class to the div with the corresponding id with the animation to disappear. 
+ */
 function hideText() {
     document.getElementById('hideplayerdescriptiontext').classList.add('playerdescritiontextgoing');
 }
 
+
+/**
+ * This function adds a class to the div with the corresponding id with the animation to disappear. 
+ */
 function hidedescriptionboxes() {
     document.getElementById('hideplayerdescriptionboxes').classList.add('keyboarddescritionboxesgoing');
 }
 
+/**
+ * The window.addEventlistener(with "keydown")  is used to register which keys are pressed.
+ */
 window.addEventListener("keydown", e => {
     const k = e.key;
     // console.log(e);
@@ -78,6 +81,9 @@ window.addEventListener("keydown", e => {
 
 });
 
+/**
+ * The window.addEventlistener (with "keyup") is used to register which keys are no longer pressed.
+ */
 window.addEventListener("keyup", e => {
     const k = e.key;
 
@@ -104,49 +110,3 @@ window.addEventListener("keyup", e => {
         keyboard.ENTER = false;
     }
 });
-
-function myFunc(e) {
-    e.preventDefault();
-    let clientX = e.touches[0].clientX;
-    let clientY = e.touches[0].clientY;
-    console.log(clientX, clientY);
-    if (touchOnBottlesymbole(clientX, clientY)) {
-        world.keyboard.D = true;
-    }
-
-    if (touchOnArrowUp(clientX, clientY)) {
-        world.keyboard.SPACE = true;
-    }
-
-    if (touchOnArrowLeft(clientX, clientY)) {
-        world.keyboard.LEFT = true;
-    }
-
-    if (touchOnArrowRight(clientX, clientY)) {
-        world.keyboard.RIGHT = true;
-    }
-}
-
-function touchOnArrowUp(clientX, clientY) {
-    return world.arrowUp.isColliding({ x: clientX, y: clientY, width: 50, height: 50 });
-}
-
-function touchOnArrowRight(clientX, clientY) {
-    return world.arrowRight.isColliding({ x: clientX, y: clientY, width: 50, height: 50 });
-}
-
-function touchOnArrowLeft(clientX, clientY) {
-    return world.arrowLeft.isColliding({ x: clientX, y: clientY, width: 50, height: 50 });
-}
-
-function touchOnBottlesymbole(clientX, clientY) {
-    return world.bottlesymbole.isColliding({ x: clientX, y: clientY, width: 50, height: 50 });
-}
-
-function myFunc2(e) {
-    e.preventDefault();
-    world.keyboard.RIGHT = false;
-    world.keyboard.SPACE = false;
-    world.keyboard.LEFT = false;
-    world.keyboard.D = false;
-}

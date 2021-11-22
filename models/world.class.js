@@ -11,10 +11,6 @@ class World {
     youwin = false;
     countedcoins = 0;
     countedbottles = 0;
-    bottlesymbole = new Bottlesymbole();
-    arrowUp = new Uparrow();
-    arrowRight = new Rightarrow();
-    arrowLeft = new Leftarrow();
     camera_x = 0;
     statusBarBottles = new BottleBar();
     statusBar = new StatusBar();
@@ -23,7 +19,13 @@ class World {
     throw_sound = new Audio('audio/throw.mp3');
     requestDraw;
 
-    constructor(canvas, keyboard) { // warum this
+    /**
+     * 
+     * 
+     * @param {object} canvas - html Tag
+     * @param {object} keyboard - 
+     */
+    constructor(canvas, keyboard) { 
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
         this.keyboard = keyboard;
@@ -32,26 +34,33 @@ class World {
         this.testing();
     }
 
+    /**
+     * ??
+     */
     setWorld() {
         this.character.world = this;
         this.level.getEndboss().world = this;
     }
 
+    /**
+     * This function executes several functions over the set interval five times per second.
+     */
     testing() {
         setInterval(() => {
             this.checkforCollisionsBottleswithEndboss();
             this.checkforCollisionsCharacterwithBottles();
             this.checkforCollisionsCharacterwithCoins();
             this.checkforCollisions();
-            this.checkforCollisionjumponChicken();
             this.checktheBottlesStatusBar();
             this.checkTrowObjects();
             this.checkforGameover();
             this.checkforWin();
-
         }, 200);
     }
 
+    /**
+     * checks whether the variable youwin is true, if so the canvas is stopped and the won function is called.
+     */
     checkforWin() {
         if (this.youwin) {
             cancelAnimationFrame(this.requestDraw);
@@ -59,6 +68,9 @@ class World {
         }
     }
 
+    /**
+     * 
+     */
     drawyouwin() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.addToMap(this.youwinObject);
@@ -70,13 +82,13 @@ class World {
         
         this.ctx.fillText(this.countedbottles, 45, 70);
         this.ctx.fillStyle = "#32ABCF";
-        this.ctx.fillRect(120, 30, 30, 50); // x y breite höhe
+        this.ctx.fillRect(120, 30, 30, 50);
         this.ctx.font = "40px Arial";
         this.ctx.fillStyle = "#FCFDFE";
         this.ctx.fillText("0", 125, 70);
 
         this.ctx.fillStyle = "#32ABCF";
-        this.ctx.fillRect(200, 30, 40, 50); // x y breite höhe
+        this.ctx.fillRect(200, 30, 40, 50);
         this.ctx.font = "40px Arial";
         this.ctx.fillStyle = "#FCFDFE";
         this.ctx.fillText(this.countedcoins, 200, 70);
@@ -94,7 +106,6 @@ class World {
             cancelAnimationFrame(this.requestDraw);
             this.drawGameover();
         }
-
     }
 
     drawGameover() {
@@ -112,8 +123,6 @@ class World {
                 this.throwableObjects.push(bottle);
                 this.throw_sound.play();
             }
-
-
         }
     }
 
@@ -122,16 +131,6 @@ class World {
             if (this.character.isColliding(enemy)) {
                 this.character.hit();
                 this.statusBar.setPercentage(this.character.energy);
-            }
-        });
-    }
-
-    checkforCollisionjumponChicken() {
-        this.level.enemies.forEach((enemy) => {
-            if (this.character.isCollidingtop(enemy)) {
-                console.log('collision');
-                let position = this.level.enemies.indexOf(enemy);
-                this.level.enemies.splice(position, 1);
             }
         });
     }
@@ -156,7 +155,6 @@ class World {
                 let position = this.level.bottles.indexOf(bottle);
                 this.level.bottles.splice(position, 1);
                 this.countedbottles++;
-                console.log('number is', this.countedbottles);
                 this.checktheBottlesStatusBar();
             }
         });
@@ -184,25 +182,6 @@ class World {
 
         this.addObjectsToMap(this.level.backgroundObjects);
 
-
-        if (window.innerWidth < 1200) {
-            this.ctx.translate(-this.camera_x, 0); // back
-            this.addToMap(this.bottlesymbole);
-            this.ctx.translate(this.camera_x, 0); // Forwards
-
-            this.ctx.translate(-this.camera_x, 0); // back
-            this.addToMap(this.arrowUp);
-            this.ctx.translate(this.camera_x, 0); // Forwards
-
-            this.ctx.translate(-this.camera_x, 0); // back
-            this.addToMap(this.arrowLeft);
-            this.ctx.translate(this.camera_x, 0); // Forwards
-
-            this.ctx.translate(-this.camera_x, 0); // back
-            this.addToMap(this.arrowRight);
-            this.ctx.translate(this.camera_x, 0); // Forwards 
-        }
-
         this.ctx.translate(-this.camera_x, 0); // back
         this.addToMap(this.statusBar);
         this.ctx.translate(this.camera_x, 0); // Forwards
@@ -223,20 +202,15 @@ class World {
         this.addObjectsToMap(this.throwableObjects);
         this.addToMap(this.character);
 
-
-
         this.ctx.translate(-this.camera_x, 0);
 
         let self = this;
         this.requestDraw = requestAnimationFrame(this.draw.bind(this));
-
-
     }
 
     addObjectsToMap(objects) {
         objects.forEach(o => {
             this.addToMap(o);
-
         });
     }
 

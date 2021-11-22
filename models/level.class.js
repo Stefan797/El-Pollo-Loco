@@ -6,6 +6,15 @@ class Level {
     backgroundObjects;
     level_end_x = 6550;
 
+    /**
+     * 
+     * 
+     * @param {object} enemies - chickens endboss
+     * @param {object} coins - 
+     * @param {object} bottles 
+     * @param {object} clouds 
+     * @param {object} backgroundObjects 
+     */
     constructor(enemies, coins, bottles, clouds, backgroundObjects) {
         this.enemies = enemies;
         this.coins = coins;

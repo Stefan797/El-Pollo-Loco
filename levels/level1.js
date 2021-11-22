@@ -1,3 +1,8 @@
+/**
+ * This function creates an array and adds the objects (new coin) to it by looping it through.
+ * @param {number} size - worth of added coins
+ * @returns 
+ */
 function getCoins(size) {
     let array = [];
     for (let index = 0; index < size; index++) {
@@ -6,6 +11,11 @@ function getCoins(size) {
     return array;
 }
 
+/**
+ * This function creates an array and adds the objects (new bottle) to it by looping it through.
+ * @param {number} size - worth of added bottles
+ * @returns 
+ */
 function getBottles(size) {
     let array = [];
     for (let index = 0; index < size; index++) {
@@ -14,7 +24,9 @@ function getBottles(size) {
     return array;
 }
 
-
+/**
+ * Adds all objects to the level1 variable.
+ */
 const level1 = new Level(
     [
         new Chicken(),
