@@ -57,6 +57,9 @@ class Character extends MovableObject {
         this.animate();
     }
 
+    /**
+     * Soll ich dort jede einzelne Zeile erklären ? 
+     */
     animate() {
         setInterval(() => {
             this.walking_sound.pause();

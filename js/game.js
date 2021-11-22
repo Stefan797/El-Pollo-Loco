@@ -58,6 +58,9 @@ window.addEventListener("keydown", e => {
     if (e.keyCode == 32) {
         keyboard.SPACE = true;
     }
+    if (e.keyCode == 83) {
+        keyboard.S = true;
+    }
     if (e.keyCode == 68) {
         keyboard.D = true;
     }
@@ -108,5 +111,8 @@ window.addEventListener("keyup", e => {
 
     if (e.keyCode == 13) {
         keyboard.ENTER = false;
+    }
+    if (e.keyCode == 83) {
+        keyboard.S = false;
     }
 });

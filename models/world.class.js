@@ -108,6 +108,9 @@ class World {
         }
     }
 
+    /**
+     *This function clears the contents of the canvas and then inserts the game over image. 
+     */
     drawGameover() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.addToMap(this.gameOverObject);
@@ -118,7 +121,6 @@ class World {
         if (this.keyboard.D) {
             if (this.countedbottles >= 1) {
                 this.countedbottles--;
-                console.log('number is', this.countedbottles);
                 let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
                 this.throwableObjects.push(bottle);
                 this.throw_sound.play();

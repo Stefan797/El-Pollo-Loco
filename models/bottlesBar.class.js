@@ -1,5 +1,6 @@
 class BottleBar extends DrawableObject {
 
+    // collected bottles of StatusBar pictures
     IMAGES = [
         'img/7.Marcadores/Barra/Marcador_botella/Naranja/100_.png',
         'img/7.Marcadores/Barra/Marcador_botella/Naranja/80_.png',
@@ -9,6 +10,9 @@ class BottleBar extends DrawableObject {
         'img/7.Marcadores/Barra/Marcador_botella/Naranja/0_.png'
     ];
 
+    /**
+     * 
+     */
     constructor() {
         super();
         this.loadImages(this.IMAGES);
@@ -19,12 +23,22 @@ class BottleBar extends DrawableObject {
         this.setPercentage(0);
     }
 
+    /**
+     * ??
+     * 
+     * @param {number} percentage - 
+     */
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.IMAGES[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
+    /**
+     * This function returns the number for the correct position in the array
+     * 
+     * @returns number from one to five
+     */
     resolveImageIndex() {
         if (this.percentage <= 2) {
             return 5;
