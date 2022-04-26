@@ -1,3 +1,6 @@
+/**
+ * This class constructs all the bottles objects.
+ */
 class Bottle extends MovableObject {
 
     width = 80;

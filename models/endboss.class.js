@@ -1,3 +1,6 @@
+/**
+ * This class constructs the final boss and performs functions that modify images and values of the final boss.
+ */
 class Endboss extends MovableObject {
     
     height = 350;
@@ -52,6 +55,9 @@ class Endboss extends MovableObject {
         this.animate();
     }
 
+    /**
+     * This function animates the endboss with different requirements.
+     */
     animate() {
         setInterval(() => {
 

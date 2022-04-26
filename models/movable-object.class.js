@@ -1,3 +1,6 @@
+/**
+ * This class performs functions that have multiple moving objects.
+ */
 class MovableObject extends DrawableObject {
     speed = 0.2;
     otherDirection = false;
@@ -58,8 +61,8 @@ class MovableObject extends DrawableObject {
 
    
     /**
-     * 
-     * @returns 
+     * Controls the period in which the collision can take place.
+     * @returns - Time until the next collision
      */
     isHurt() { // stellt die Variable auf true
         let timepassed = new Date().getTime() - this.lastHit; // Difference in ms
@@ -79,7 +82,6 @@ class MovableObject extends DrawableObject {
     /**
      * Binds to a variable i the number of the current image divided by the number of all images in the corresponding array.
      * binds the string from image to a variable path.
-     * ???
      * @param {string} images - path to images
      */
     playAnimation(images) {

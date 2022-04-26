@@ -1,3 +1,6 @@
+/**
+ * This class constructs the bottle bar and calculates the images according to the number of available bottles.
+ */
 class BottleBar extends DrawableObject {
 
     // collected bottles of StatusBar pictures
@@ -10,9 +13,6 @@ class BottleBar extends DrawableObject {
         'img/7.Marcadores/Barra/Marcador_botella/Naranja/0_.png'
     ];
 
-    /**
-     * 
-     */
     constructor() {
         super();
         this.loadImages(this.IMAGES);
@@ -24,9 +24,8 @@ class BottleBar extends DrawableObject {
     }
 
     /**
-     * ??
-     * 
-     * @param {number} percentage - 
+     * Sends the path to the images from the images array.
+     * @param {number} percentage - countedbottles Value of the variable from the world file. 
      */
     setPercentage(percentage) {
         this.percentage = percentage;
@@ -35,7 +34,7 @@ class BottleBar extends DrawableObject {
     }
 
     /**
-     * This function returns the number for the correct position in the array
+     * This function returns the number for the correct position in the Image array
      * 
      * @returns number from one to five
      */

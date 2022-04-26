@@ -1,3 +1,6 @@
+/**
+ * This class constructs the character and executes functions from changing images and values of the character.
+ */
 class Character extends MovableObject {
     width = 100;
     height = 250;
@@ -58,7 +61,7 @@ class Character extends MovableObject {
     }
 
     /**
-     * Soll ich dort jede einzelne Zeile erklären ? 
+     * This function animates the character with different requirements.
      */
     animate() {
         setInterval(() => {

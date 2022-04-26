@@ -1,3 +1,6 @@
+/**
+ * This class constructs the coins and executes functions from change images and values.
+ */
 class Coin extends MovableObject {
 
     width = 60;

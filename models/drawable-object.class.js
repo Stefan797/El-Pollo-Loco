@@ -1,3 +1,6 @@
+/**
+ * This class loads function to draw different objects in the world.
+ */
 class DrawableObject {
 
     x = 100;
@@ -9,7 +12,7 @@ class DrawableObject {
     currentImage = 0;
 
     /**
-     * 
+     * Is loaded in the Constructor to add new images.
      * @param {string} path - path to the picture
      */
     loadImage(path) {
@@ -18,8 +21,7 @@ class DrawableObject {
     }
 
     /**
-     * ??
-     * 
+     * Adds the corresponding values ​​to the ctx.
      * @param {object} ctx - canvas variable
      */
     draw(ctx) {
@@ -27,9 +29,8 @@ class DrawableObject {
     }
 
     /**
-     * ??
-     * 
-     * @param {object} arr - ??
+     * Passes the paths of the images that are loaded in the constructor.
+     * @param {object} arr - Images Arrays
      */
     loadImages(arr) {
         arr.forEach((path) => {

@@ -1,3 +1,6 @@
+/**
+ * This class constructs the status bar and calculates the images according to the values of the character's remaining available life.
+ */
 class StatusBar extends DrawableObject {
 
     percentage = 100;
@@ -21,12 +24,21 @@ class StatusBar extends DrawableObject {
         this.setPercentage(100);
     }
 
+    /**
+     * Sends the path to the images from the images array.
+     * @param {number} percentage - energy Value of the character
+     */
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.IMAGES[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
+    /**
+     * This function returns the number for the correct position in the Image array
+     * 
+     * @returns number from one to five
+     */
     resolveImageIndex() {
         if (this.percentage == 100) {
             return 5;

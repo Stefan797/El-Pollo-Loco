@@ -1,3 +1,6 @@
+/**
+ * This class creates variables that are used for keyboard functions. 
+ */
 class Keyboard {
     LEFT = false;
     RIGHT = false;

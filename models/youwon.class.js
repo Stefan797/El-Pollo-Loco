@@ -1,3 +1,6 @@
+/**
+ * This class constructs the obtained image.
+ */
 class Youwon extends MovableObject {
     
     height = canvas.height;
@@ -6,6 +9,6 @@ class Youwon extends MovableObject {
     x = 0;
 
     constructor() {
-        super().loadImage('img/7.Marcadores/Muestra-ícono.png'); // img/Youwon/Recurso 22.png
+        super().loadImage('img/7.Marcadores/Muestra-ícono.png');
     }
 }

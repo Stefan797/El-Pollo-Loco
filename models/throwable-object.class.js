@@ -1,3 +1,6 @@
+/**
+ * This class performs functions that have objects to be thrown.
+ */
 class ThrowableObject extends MovableObject {
 
     constructor(x, y) {
@@ -10,6 +13,9 @@ class ThrowableObject extends MovableObject {
 
     }
 
+    /**
+     * animated how the bottle flies.
+     */
     trow() {
         this.speedY = 30;
         this.applyGravity();

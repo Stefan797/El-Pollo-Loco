@@ -1,3 +1,6 @@
+/**
+ * This class constructs the coin bar and calculates the images according to the number of coins collected.
+ */
 class StatusBarCoins extends DrawableObject {
     
     IMAGES = [
@@ -20,12 +23,21 @@ class StatusBarCoins extends DrawableObject {
 
     }
 
+    /**
+     * Sends the path to the images from the images array.
+     * @param {number} percentage - countedcoins Value of the variable from the world file.
+     */
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.IMAGES[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
+    /**
+     * This function returns the number for the correct position in the Image array
+     * 
+     * @returns number from one to five
+     */
     resolveImageIndex() {
         if (this.percentage <= 5) {
             return 5;

@@ -1,7 +1,7 @@
 /**
  * This function creates an array and adds the objects (new coin) to it by looping it through.
  * @param {number} size - worth of added coins
- * @returns 
+ * @returns { Array } A collection of Coin Class Objects
  */
 function getCoins(size) {
     let array = [];
@@ -14,7 +14,7 @@ function getCoins(size) {
 /**
  * This function creates an array and adds the objects (new bottle) to it by looping it through.
  * @param {number} size - worth of added bottles
- * @returns 
+ * @returns { Array } A collection of Coin Class Objects
  */
 function getBottles(size) {
     let array = [];

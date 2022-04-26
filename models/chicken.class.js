@@ -1,3 +1,6 @@
+/**
+ * This class constructs the chickens and executes functions from change images and values.
+ */
 class Chicken extends MovableObject {
 
     width = 80;
@@ -13,21 +16,19 @@ class Chicken extends MovableObject {
         'img/3.Secuencias_Enemy_básico/Versión_Gallinita (estas salen por orden de la gallina gigantona)/4.G_muerte.png'
     ];
 
-    /**
-     * 
-     */
+
     constructor() {
         super().loadImage('img/3.Secuencias_Enemy_básico/Versión_Gallinita (estas salen por orden de la gallina gigantona)/1.Ga_paso_derecho.png');
         this.loadImages(this.IMAGES_WALKING);
         this.loadImages(this.IMAGES_DEAD);
-        this.x = Math.floor(Math.random() * 6000) + 400; // PUnkt vor strich als Math.random wird erst mit 500 mal genommen
+        this.x = Math.floor(Math.random() * 6000) + 400; // Punkt vor Strich als Math.random wird erst mit 500 mal genommen
         this.y = 360;
         this.speed = 0.15 + Math.random() * 0.25;
         this.animate();
     }
 
     /**
-     * Checks whether 
+     * This function animates the chicken to run to the left. 
      */
     animate() {
 

@@ -1,3 +1,6 @@
+/**
+ * This class constructs the clouds and executes functions from change images and values.
+ */
 class Cloud extends MovableObject {
 
     width = 500;
@@ -10,6 +13,9 @@ class Cloud extends MovableObject {
         this.animate();
     }
 
+    /**
+     * This function animates the clouds to run to the left. 
+     */
     animate() {
         setInterval(() => {
             this.moveLeft();

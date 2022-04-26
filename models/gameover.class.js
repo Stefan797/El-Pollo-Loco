@@ -1,3 +1,6 @@
+/**
+ * This class constructs the gameover image.
+ */
 class GameoverObject extends DrawableObject {
     height = 600;
     width = 600;

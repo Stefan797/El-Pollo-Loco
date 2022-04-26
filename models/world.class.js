@@ -1,3 +1,6 @@
+/**
+ * This class constructs the world stores variables and tests various functions e.g. collisions, won, game over and things added to the canvas. 
+ */
 class World { 
 
     character = new Character(); 
@@ -19,12 +22,6 @@ class World {
     throw_sound = new Audio('audio/throw.mp3');
     requestDraw;
 
-    /**
-     * 
-     * 
-     * @param {object} canvas - html Tag
-     * @param {object} keyboard - 
-     */
     constructor(canvas, keyboard) { 
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
@@ -35,7 +32,7 @@ class World {
     }
 
     /**
-     * ??
+     * Submits the character and the final boss of the word class.
      */
     setWorld() {
         this.character.world = this;
@@ -69,7 +66,7 @@ class World {
     }
 
     /**
-     * 
+     * Draws the youwin picture and the results of the bottles and coins.
      */
     drawyouwin() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -101,6 +98,9 @@ class World {
 
     }
 
+    /**
+     * Checks whether the variable gameover is true.
+     */
     checkforGameover() {
         if (this.gameover) {
             cancelAnimationFrame(this.requestDraw);
@@ -109,13 +109,16 @@ class World {
     }
 
     /**
-     *This function clears the contents of the canvas and then inserts the game over image. 
+     * This function deletes the content of the canvas and then adds the game over object (picture) to the empty canvas. 
      */
     drawGameover() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.addToMap(this.gameOverObject);
     }
 
+    /**
+     * Checks whether the D key on the keyboard is pressed. If the number of bottles is higher than one, a ThrowableObject is added to the canvas.
+     */
     checkTrowObjects() {
 
         if (this.keyboard.D) {
@@ -128,6 +131,9 @@ class World {
         }
     }
 
+    /**
+     * Checks the collision of the enemies with the character.
+     */
     checkforCollisions() {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
@@ -137,8 +143,9 @@ class World {
         });
     }
 
-
-
+    /**
+     * Checks the collision of the character with the coins.
+     */
     checkforCollisionsCharacterwithCoins() {
         this.level.coins.forEach((coin) => {
             if (this.character.isColliding(coin)) {
@@ -150,7 +157,9 @@ class World {
         });
     }
 
-
+    /**
+     * Checks the collision of the character with the bottles.
+     */
     checkforCollisionsCharacterwithBottles() {
         this.level.bottles.forEach((bottle) => {
             if (this.character.isColliding(bottle)) {
@@ -162,21 +171,28 @@ class World {
         });
     }
 
+    /**
+     * Transfers the value of the current number of bottles and calls the setPercentage function.
+     */
     checktheBottlesStatusBar() {
         this.statusBarBottles.setPercentage(this.countedbottles);
     }
 
+    /**
+     * Checks the collision of the bottles with the final boss.
+     */
     checkforCollisionsBottleswithEndboss() {
         this.throwableObjects.forEach((throwableObject) => {
             if (this.level.getEndboss().isColliding(throwableObject)) {
-
-                console.log('collision with Endboss, energy', this.level.getEndboss().energy);
+                // console.log('collision with Endboss, energy', this.level.getEndboss().energy);
                 this.level.getEndboss().hit();
-
             }
         });
     }
 
+    /**
+     * Draws running the canvas.
+     */
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -210,12 +226,20 @@ class World {
         this.requestDraw = requestAnimationFrame(this.draw.bind(this));
     }
 
+    /**
+     * Adds the objects to the addToMap function using a Voreach loop.
+     * @param {Object} objects - the objects of the level
+     */
     addObjectsToMap(objects) {
         objects.forEach(o => {
             this.addToMap(o);
         });
     }
 
+    /**
+     * Adds the values ​​to the other functions.
+     * @param {Object} mo - the objects of the level
+     */
     addToMap(mo) {
         if (mo.otherDirection) {
             this.flipImage(mo);
@@ -223,14 +247,16 @@ class World {
 
         mo.draw(this.ctx);
         mo.drawFrame(this.ctx);
-
-
-
+        
         if (mo.otherDirection) {
             this.flipImageBack(mo);
         }
     }
 
+    /**
+     * Rotates a picture in the other direction in the canvas.
+     * @param {Object} mo - the objects of the level
+     */
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
@@ -238,6 +264,10 @@ class World {
         mo.x = mo.x * -1;
     }
 
+    /**
+     * Rotates the picture back again.
+     * @param {Object} mo - the objects of the level
+     */
     flipImageBack(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();
