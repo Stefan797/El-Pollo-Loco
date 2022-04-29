@@ -9,10 +9,23 @@ body {
     align-items: center;
 }
 
-.mjaC {
+.ecc {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#mobileContainer {
+    background-color: rgba(0,0,0, 0.2);
+    width: 100%;
+    height: 100vh;
+}
+
+.gamenote {
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
 }
 
 .canvas-placement {

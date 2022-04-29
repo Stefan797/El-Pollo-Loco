@@ -2,63 +2,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Pollo Loco</title>
-    <link rel="icon" href="img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/1.Caminata/G1.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
-    <!-- Verbindet die css Datei mit der Html -->
-    <script src="models/world.class.js"></script>
-    <script src="models/drawable-object.class.js"></script>
-    <script src="models/movable-object.class.js"></script>
-    <script src="models/bottlesBar.class.js"></script>
-    <script src="models/status-bar.class.js"></script>
-    <script src="models/statusbarcoins.class.js"></script>
-    <script src="models/gameover.class.js"></script>
-    <script src="models/youwon.class.js"></script>
-    <script src="models/character.class.js"></script>
-    <script src="models/chicken.class.js"></script>
-    <script src="models/cloud.class.js"></script>
-    <script src="models/background-object.class.js"></script>
-    <script src="models/keyboard.class.js"></script>
-    <script src="models/level.class.js"></script>
-    <script src="models/endboss.class.js"></script>
-    <script src="models/coin.class.js"></script>
-    <script src="models/bottles.class.js"></script>
-    <script src="models/throwable-object.class.js"></script>
-    <script src="levels/level1.js"></script>
-    <script src="js/game.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Pollo Loco</title>
+  <link rel="icon" href="img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/1.Caminata/G1.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <!-- Verbindet die css Datei mit der Html -->
+  <script src="models/world.class.js"></script>
+  <script src="models/drawable-object.class.js"></script>
+  <script src="models/movable-object.class.js"></script>
+  <script src="models/bottlesBar.class.js"></script>
+  <script src="models/status-bar.class.js"></script>
+  <script src="models/statusbarcoins.class.js"></script>
+  <script src="models/gameover.class.js"></script>
+  <script src="models/youwon.class.js"></script>
+  <script src="models/character.class.js"></script>
+  <script src="models/chicken.class.js"></script>
+  <script src="models/cloud.class.js"></script>
+  <script src="models/background-object.class.js"></script>
+  <script src="models/keyboard.class.js"></script>
+  <script src="models/level.class.js"></script>
+  <script src="models/endboss.class.js"></script>
+  <script src="models/coin.class.js"></script>
+  <script src="models/bottles.class.js"></script>
+  <script src="models/throwable-object.class.js"></script>
+  <script src="levels/level1.js"></script>
+  <script src="js/game.js"></script>
 
 </head>
 
 <body onload="init()">
-    <div class="canvas-placement">
-        <h1>EL Pollo Loco</h1>
-        <canvas id="canvas" width="720" height="480">
-        </canvas>
-        <div id="hideplayerdescriptiontext" class="game-description mjaC">
-          <p>Hello Player,<br>help Pepe to cross the desert and collect bottles to defeat the boss.</p>
-        </div>
-        <div id="hideplayerdescriptionboxes" class="keyboard-use-description">
-            <div class="explainkeys-boxes">
-              <h2>Jump = space</h2>
-            </div>
-            <div class="explainkeys-boxes">
-              <h2>Go right = arrow right</h2>
-            </div>
-            <div class="explainkeys-boxes">
-              <h2>Go left = arrow left</h2>
-            </div>
-            <div class="explainkeys-boxes">
-              <h2>Throw bottle = D</h2>
-            </div>
-            <div class="explainkeys-boxes">
-              <h2>Open Fullscreen = F</h2>
-            </div>
-        </div>
+  <div id="mobileContainer" class="ecc">
+    <h1 class="gamenote">Please open the game on the computer to play it.</h1>
+  </div>
+  <div id="gameContainer" class="canvas-placement d-none">
+    <h1>EL Pollo Loco</h1>
+    <canvas id="canvas" width="720" height="480">
+    </canvas>
+    <div id="hideplayerdescriptiontext" class="game-description mjaC">
+      <p>Hello Player,<br>help Pepe to cross the desert and collect bottles to defeat the boss.</p>
     </div>
+    <div id="hideplayerdescriptionboxes" class="keyboard-use-description">
+      <div class="explainkeys-boxes">
+        <h2>Jump = space</h2>
+      </div>
+      <div class="explainkeys-boxes">
+        <h2>Go right = arrow right</h2>
+      </div>
+      <div class="explainkeys-boxes">
+        <h2>Go left = arrow left</h2>
+      </div>
+      <div class="explainkeys-boxes">
+        <h2>Throw bottle = D</h2>
+      </div>
+      <div class="explainkeys-boxes">
+        <h2>Open Fullscreen = F</h2>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
